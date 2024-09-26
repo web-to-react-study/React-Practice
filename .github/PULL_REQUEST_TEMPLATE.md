@@ -4,7 +4,8 @@
 - [ ] 그 컴포넌트를 이용해 다음 화면을 구현해 보세요.
 
 ## 결과물 (스크린샷)
-![alt text](image.png)
+
+![image](https://github.com/user-attachments/assets/29a3395b-be0b-42bb-96a4-9e5eb0be1507)
 
 
 구현한 화면을 캡쳐해서 제출해 주세요.
