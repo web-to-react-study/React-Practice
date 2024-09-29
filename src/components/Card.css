@@ -1,0 +1,14 @@
+.card_body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card_img {
+  width: 272px;
+  height: 165px;
+}
+
+.card_img_v {
+  width: 160px;
+  height: 207px;
+}
