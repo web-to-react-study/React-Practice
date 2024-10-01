@@ -1,0 +1,58 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* 추천 웹툰 목록 설정 */
+.webtoon-list {
+  display: flex; /* Flexbox를 사용하여 가로로 정렬 */
+  justify-content: flex-start; /* 카드들을 왼쪽 정렬 */
+  gap: 20px; /* 각 카드 사이의 간격 */
+  flex-wrap: wrap; /* 화면이 작아지면 다음 줄로 넘어가도록 설정 */
+  margin-bottom: 40px; /* 다른 섹션과의 간격 설정 */
+}
+
+/* 요일별 웹툰 목록 설정 */
+.daily-webtoon-list {
+  display: flex; /* Flexbox를 사용하여 가로로 정렬 */
+  justify-content: flex-start; /* 카드들을 왼쪽 정렬 */
+  gap: 20px; /* 각 카드 사이의 간격 */
+  flex-wrap: wrap; /* 화면이 작아지면 다음 줄로 넘어가도록 설정 */
+  margin-bottom: 40px;
+}
+
+/* 추천 웹툰 카드와 요일 웹툰 카드의 스타일 */
+.webtoon-card, .recommended-webtoon-card {
+  width: 200px; /* 기본 크기 */
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left; /* 텍스트를 왼쪽 정렬 */
+  background-color: #ffffff; /* 배경색 설정 */
+}
+
+.webtoon-image, .recommended-webtoon-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+h2, h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+p {
+  margin: 5px 0;
+  color: #555;
+}
