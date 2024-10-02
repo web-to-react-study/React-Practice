@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components';
 
 function Card({ type, thumbnail, title, author, rate, info = '' }) {
-  console.log(type === 'recommend');
-
   return (
     <Container>
       <Thumbnail $isRecommend={type === 'recommend'} src={thumbnail} alt={`${title} 썸네일 이미지`} />
@@ -24,6 +22,8 @@ const recommendStyle = css`
 
   object-position: center;
   object-fit: cover;
+
+  background-color: pink;
 `;
 
 const defaultStyle = css`
@@ -44,6 +44,7 @@ const Thumbnail = styled.img`
 `;
 
 const InfoBox = styled.div`
+  padding-top: 12px;
   display: flex;
   flex-direction: column;
   gap: 2px;
