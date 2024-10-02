@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Card from './components/Card';
-import YouTubeCard from './components/YouTubeCard';
 
 const RECOMMEND_WEBTOON = [
   {
@@ -32,17 +31,17 @@ const RECOMMEND_WEBTOON = [
 const ALL_WEBTOON = [
   {
     id: 0,
-    title: '무서운게 딱좋아!',
-    author: '이동규',
-    rate: 9.85,
-    thumbnail: 'https://image-comic.pstatic.net/webtoon/812354/thumbnail/thumbnail_IMAG21_be53c95b-d800-4275-8869-e9b9a8413ce8.jpg',
+    title: '마루는 강쥐',
+    author: '모죠',
+    rate: 9.98,
+    thumbnail: 'https://image-comic.pstatic.net/webtoon/796152/thumbnail/thumbnail_IMAG21_26b9c1d8-ca2d-4fc7-87ea-a3334634236a.jpg',
   },
   {
     id: 1,
     title: '육아일기',
     author: '자까',
     rate: 9.95,
-    thumbnail: 'https://image-comic.pstatic.net/webtoon/778322/thumbnail/titledescimage/frontImage_9a8619ea-a259-40ee-b33c-b9fa3ef1e36c.png',
+    thumbnail: 'https://image-comic.pstatic.net/webtoon/812354/thumbnail/thumbnail_IMAG21_be53c95b-d800-4275-8869-e9b9a8413ce8.jpg',
   },
   {
     id: 2,
@@ -60,33 +59,37 @@ const ALL_WEBTOON = [
   },
   {
     id: 4,
-    title: '무서운게 딱좋아!',
-    author: '이동규',
-    rate: 9.85,
-    thumbnail: 'https://image-comic.pstatic.net/webtoon/778322/thumbnail/titledescimage/frontImage_9a8619ea-a259-40ee-b33c-b9fa3ef1e36c.png',
+    title: '좋아? 죽어!',
+    author: '김용키, 박만사 / 죠',
+    rate: 9.48,
+    thumbnail: 'https://image-comic.pstatic.net/webtoon/821192/thumbnail/thumbnail_IMAG21_156483ac-3740-4cbf-8150-0f24595bae52.jpg',
   },
 ];
 
 function App() {
   return (
-    <>
+    <Container>
       <StyledTitle>추천 일요웹툰</StyledTitle>
-      <StyledRecommendBox style={{ display: 'flex' }}>
+      <StyledRecommendBox>
         {RECOMMEND_WEBTOON.map(({ id, title, author, rate, info, thumbnail }) => (
           <Card key={id} type={'recommend'} title={title} author={author} rate={rate} info={info} thumbnail={thumbnail} />
         ))}
       </StyledRecommendBox>
       <StyledTitle>전체 일요웹툰</StyledTitle>
-      <StyledAllBox style={{ display: 'flex' }}>
+      <StyledAllBox>
         {ALL_WEBTOON.map(({ id, title, author, rate, thumbnail }) => (
           <Card key={id} title={title} author={author} rate={rate} thumbnail={thumbnail} />
         ))}
       </StyledAllBox>
-    </>
+    </Container>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+  margin: 0 20px;
+`;
 
 const StyledTitle = styled.h2`
   font-size: 20px;
