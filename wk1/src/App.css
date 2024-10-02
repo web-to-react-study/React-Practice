@@ -28,32 +28,6 @@
   color: #61dafb;
 }
 
-.suggest{
-  display: flex;
-  width: 50vh;
-}
-.suggest > div > img{
-  position: relative;
-  overflow: visible;
-  width: 272px;
-  height: 165px;
-  display: flex;
-  justify-content: center;
-}
-.repo >div>img{
-  flex: none;
-  position: relative;
-  border-radius: 4px;
-  overflow: hidden;
-  width: 160px;
-  height: 207px;
-}
-
-.repo{
-  display: grid;
-  grid-gap: 20px 10px;
-  grid-template-columns: repeat(5, 160px);
-}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
