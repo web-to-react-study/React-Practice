@@ -5,3 +5,4 @@
 ## 강의자료
 
 - [240925_1주차](https://naya-h2.notion.site/React-React-Component-2957f897d1bd45f6a345fd80901e1313?pvs=4)
+- [241002_2주차](https://naya-h2.notion.site/10bfe86451a0808bb984ea0368056410?pvs=74)
