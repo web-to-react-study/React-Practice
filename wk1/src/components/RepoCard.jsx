@@ -18,7 +18,7 @@ height: ${({ $type }) => ($type === 0 ? '165px' : '207px')};
 overflow: ${({ $type }) => ($type === 0 ? 'visible' : 'hidden')}
 `;
 
-function RepoCard({ id, title, author, rate, info, thumbnail, type}) {
+function RepoCard({title, author, rate, info, thumbnail, type}) {
     return (
       <Card>
             <Thumbnail $type={type} src={thumbnail}/>

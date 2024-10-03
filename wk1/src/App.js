@@ -1,4 +1,5 @@
 import RepoCard from './components/RepoCard'
+import styled from 'styled-components'
 import './App.css';
 
 const RECOMMEND_WEBTOON = [
@@ -28,26 +29,30 @@ const RECOMMEND_WEBTOON = [
   },
 ];
 
+const DivBlock = styled.div`
+display:flex;
+`;
+
 
 function App() {
   return (
     <>
       <h2>추천 일요웹툰</h2>
-      <div style={{ display: 'flex' }}>
+      <DivBlock>
         {RECOMMEND_WEBTOON.map(({id, title, author, rate, info, thumbnail}) => (
-          //<li>
-          <RepoCard id = {id} title={title} author={author} rate={rate} info={info} thumbnail={thumbnail} type={0}/>
-          //</li>
+          <li key={id}>
+          <RepoCard title={title} author={author} rate={rate} info={info} thumbnail={thumbnail} type={0}/>
+          </li>
         ))}
-      </div>
+      </DivBlock>
       <h2>전체 일요웹툰</h2>
-      <div style={{ display: 'flex' }}>
+      <DivBlock>
         {RECOMMEND_WEBTOON.map(({id, title, author, rate, info, thumbnail}) => (
-          //<li>
-          <RepoCard id = {id} title={title} author={author} rate={rate} info={info} thumbnail={thumbnail} type={1}/>
-          //</li>
+          <li key = {id}>
+          <RepoCard title={title} author={author} rate={rate} info={info} thumbnail={thumbnail} type={1}/>
+          </li>
         ))}
-      </div>
+      </DivBlock>
     </>
   );
 }
