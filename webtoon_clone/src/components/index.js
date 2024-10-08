@@ -1,4 +1,3 @@
-import RecommendWebtoon from "./recommend_webtoon";
-import TotalWebtoon from "./total_webtoon";
+import ThumbnailWebtoon from "./thumbnail_webtoon";
 
-export { RecommendWebtoon, TotalWebtoon };
+export { ThumbnailWebtoon };

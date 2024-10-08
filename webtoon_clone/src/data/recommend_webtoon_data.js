@@ -1,5 +1,6 @@
 const RecommendWebtoonInfo = [
 	{
+		id: 0,
 		thumbnail: "./재혼황후_추천.png",
 		title: "재혼 황후",
 		writer: "히어로 / 숨풀 / 알파타르트",
@@ -7,6 +8,7 @@ const RecommendWebtoonInfo = [
 		star: "9.97",
 	},
 	{
+		id: 1,
 		thumbnail: "./체크포인트_추천.png",
 		title: "체크포인트",
 		writer: "송가 / 은소",
@@ -14,6 +16,7 @@ const RecommendWebtoonInfo = [
 		star: "9.94",
 	},
 	{
+		id: 2,
 		thumbnail: "./뼈왕_추천.png",
 		title: "뼈왕",
 		writer: "유성연",
