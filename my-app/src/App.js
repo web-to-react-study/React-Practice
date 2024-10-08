@@ -84,9 +84,9 @@ const Webtoonlist = ({ webtoons }) => {
   return (
     <WebtoonSection>
       <WebtoonList>
-        {webtoons.map((webtoon, index) => (
+        {webtoons.map((webtoon) => (
           <WebtoonCard
-            key={index}
+            key={webtoon.id}
             title={webtoon.title}
             author={webtoon.author}
             rate={webtoon.rate}
@@ -102,15 +102,15 @@ const Webtoonlist = ({ webtoons }) => {
 
 function App() {
   const recommendedWebtoons = [
-    { title: '두호의 모험', author: '이두호', rate: '10.00', img: 'img1.jpg', episode: '1화-완결', type: 'rec'},
-    { title: '이두호!', author: '이두호', rate: '10.00', img: 'img2.jpg', episode: '1화-완결', type: 'rec'},
-    { title: '두호주의', author: '이두호', rate: '10.00', img: 'img3.jpg', episode: '1화-완결', type: 'rec'},
+    { title: '두호의 모험', author: '이두호', rate: '10.00', img: 'img1.jpg', episode: '1화-완결', type: 'rec', id:'0'},
+    { title: '이두호!', author: '이두호', rate: '10.00', img: 'img2.jpg', episode: '1화-완결', type: 'rec', id:'1'},
+    { title: '두호주의', author: '이두호', rate: '10.00', img: 'img3.jpg', episode: '1화-완결', type: 'rec', id:'2'},
   ];
 
   const allWebtoons = [
-    { title: '귀여운두호', author: '이두호', rate: '10.00', img: 'img4.jpg', episode: '1화-완결', type: 'com' },
-    { title: '도내sss급이두호', author: '이두호', rate: '10.00', img: 'img5.jpg', episode: '1화-완결', type: 'com' },
-    { title: '만렙두호', author: '이두호', rate: '10.00', img: 'img6.jpg', episode: '1화-완결', type: 'rec', type: 'com' },
+    { title: '귀여운두호', author: '이두호', rate: '10.00', img: 'img4.jpg', episode: '1화-완결', type: 'com', id:'0' },
+    { title: '도내sss급이두호', author: '이두호', rate: '10.00', img: 'img5.jpg', episode: '1화-완결', type: 'com', id:'1' },
+    { title: '만렙두호', author: '이두호', rate: '10.00', img: 'img6.jpg', episode: '1화-완결', type: 'rec', type: 'com', id:'2' },
   ];
 
   return (
