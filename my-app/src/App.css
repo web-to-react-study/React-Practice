@@ -37,72 +37,24 @@
   }
 }
 
-.box {
-  width: 960px;
-  height: 960px;
-}
-
-.rec_wt_box {
-  width: 300px;
-  height: 280px;
-  display: inline-block;
-  margin: 10px;
-}
-
-.wt_box {
-  width: 172px;
-  height: 280px;
-  display: inline-block;
-  margin: 10px;
-}
-
-.rec_wt_thumbnail{
-  width: 300px;
-  height: 210px;
-  display: block;
-  margin: 0 auto;
-}
-
-.wt_thumbnail {
-  width: 172px;
-  height: 210px;
-  display: block;
-  margin: 0 auto;
-}
-
-.wt_title {
+.webtoon_title {
   margin: 5px 0;
   line-height: 1.2;
   font-size: 14px;
   font-weight: bold;
 }
 
-.wt_author {
+.webtoon_author {
   margin: 5px 0;
-  line-height: 1.2;
   font-size: 13px;
 }
 
-.wt_chapter {
-  margin: 5px 0;
-  line-height: 1.2;
+.webtoon_chapter {
   font-size: 12px;
   color: dimgrey;
 }
 
-.wt_rate {
-  margin: 5px 0;
-  line-height: 1.2;
+.webtoon_rate {
   font-size: 12px;
-  color:darkgray;
-}
-
-.spacing {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-}
-
-.wt_tab {
-  font-size: 13px;
+  color: darkgray;
 }
