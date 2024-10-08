@@ -1,5 +1,5 @@
 import React from 'react';
-import Webtoon from './Webtoon';
+import Webtoon from './Webtoon'; 
 import './App.css';
 import webtoonData from './webtoonData';
 import styled from 'styled-components';
