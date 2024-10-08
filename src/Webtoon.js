@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Webtoon(props) {
-    /* 컴포넌트 구현 */
     return (
         <div className="webtoonComponent">
             <img src={props.image} alt={props.title} style={{ width: '100%', height: 'auto' }}/>

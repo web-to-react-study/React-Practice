@@ -40,7 +40,7 @@ function App() {
       <h3>추천 화요웹툰</h3>
       <div className="webtoonCard">
         {recommendWebtoons.map((webtoon, index) => (
-          <Card key={index} isRecommend>
+          <Card key={webtoon.id} isRecommend>
             <Webtoon 
               image={webtoon.image}
               title={webtoon.title}
@@ -62,7 +62,7 @@ function App() {
 
       <div className="webtoonCard">
         {nonRecommendWebtoons.map((webtoon, index) => (
-          <Card key={index} >
+          <Card key={webtoon.id} >
             <Webtoon 
               image={webtoon.image}
               title={webtoon.title}
