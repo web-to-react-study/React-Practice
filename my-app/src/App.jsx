@@ -1,41 +1,135 @@
 import logo from './logo.svg';
 import './App.css';
+import styled from 'styled-components';
 
-function RecommendedWebtoon(props) {
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+`
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+`;
+
+const Thumbnail = styled.img`
+  width: ${({ $type }) => ($type === 'Recommend' ? '272px' : '160px')};
+  height: ${({ $type }) => ($type === 'Recommend' ? '165px' : '207px')};
+  object-fit: cover;
+  object-position: center;
+`;
+
+const Title = styled.h3`
+  width: ${({ $type }) => ($type === 'Recommend' ? '272px' : '160px')};
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+`;
+
+const Author = styled.p`
+  width: ${({ $type }) => ($type === 'Recommend' ? '272px' : '160px')};
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+`;
+
+function WebtoonCard({ type, thumbnail, title, author, info, rate }) {
   return (
-	  <div>
-      <img src={props.image}/>
-	    <h3>{props.title}</h3>
-	    <p>작가: {props.author}</p>
-	    <p>화 수: {props.hwa}</p>
-      <p>별점: {props.star}</p>
-    </div>
+    <Container>
+      <Content>
+        <Thumbnail $type={type} src={thumbnail} alt={`${title} Thumbnail`} />
+        <Title $type={type}> {title} </Title>
+        <Author $type={type}> {author} </Author>
+        {type == 'Recommend' && <p>{info}</p>}
+        <p>⭐ {rate}</p>
+      </Content>
+    </Container>
   );
 }
 
-function TodayWebtoon(props) {
-  return (
-	  <div>
-      <img src={props.image}/>
-	    <h3>{props.title}</h3>
-	    <p>작가: {props.author}</p>
-      <p>평점: {props.star}</p>
-    </div>
-  );
-}
+const RECOMMEND_WEBTOON = [
+  {
+    type: 'Recommend',
+    title: '시한부 황후의 나쁜 짓',
+    author: '굄 / 이준 / 정무늬',
+    info: '45화.<스텔라 전용 탈 것>',
+    rate: '9.86',
+    thumbnail: 'https://image-comic.pstatic.net/webtoon/819054/thumbnail/titledescimage/backImage_d4df04e2-9a05-407e-bde9-af40103b4221.png'
+  },
+  {
+    type: 'Recommend',
+    title: '배드 엔딩 메이커',
+    author: '오일구 / 심재영 / 류은가람',
+    info: '69화',
+    rate: '9.98',
+    thumbnail: 'https://image-comic.pstatic.net/webtoon/812017/thumbnail/titledescimage/frontImage_8be270a5-2b58-4863-9645-1921389b0cc7.png',
+  },
+  {
+    type: 'Recommend',
+    title: '여우자매',
+    author: '갈치',
+    info: '2부 23화 - 결핍 3',
+    rate: '9.97',
+    thumbnail: 'https://image-comic.pstatic.net/webtoon/797413/thumbnail/titledescimage/backImage_aa90f72f-34fd-44bb-9cfd-7c569182b7ec.png',
+  }
+]
+
+const ALL_WEBTOON = [
+  {
+    type: 'ALL',
+    title: '김부장',
+    author: '박만사, 남자의 이야기 / 정종택',
+    rate: '9.59',
+    thumbnail: 'https://image-comic.pstatic.net/webtoon/783053/thumbnail/thumbnail_IMAG21_d7732f14-26da-4e35-8762-660cc87b53f1.jpg',
+  },
+  {
+    type: 'ALL',
+    title: '마루는 강쥐',
+    author: '모죠',
+    rate: '9.98',
+    thumbnail: 'https://image-comic.pstatic.net/webtoon/796152/thumbnail/thumbnail_IMAG21_26b9c1d8-ca2d-4fc7-87ea-a3334634236a.jpg',
+  },
+  {
+    type: 'ALL',
+    title: '좋아? 죽어!',
+    author: '김용키, 박만사 / 죠',
+    rate: '9.48',
+    thumbnail: 'https://image-comic.pstatic.net/webtoon/821192/thumbnail/thumbnail_IMAG21_156483ac-3740-4cbf-8150-0f24595bae52.jpg',
+  },
+  {
+    type: 'ALL',
+    title: '서울 자가에 대기업 다니는 김 부장 이야기',
+    author: '명랑 / 김병관 / 송희구',
+    rate: '9.95',
+    thumbnail: 'https://image-comic.pstatic.net/webtoon/819929/thumbnail/thumbnail_IMAG21_f1ca00e5-9b30-44d3-a1ee-7a04d539002a.jpg',
+  },
+  {
+    type: 'ALL',
+    title: '괴력난신',
+    author: '매드버드 / 김태형 / 한중월야',
+    rate: '9.95',
+    thumbnail: 'https://image-comic.pstatic.net/webtoon/821597/thumbnail/thumbnail_IMAG21_d39e65d8-6ffd-4024-be77-dbeb87db820c.jpg',
+  }
+]
 
 function App() {
   return (
-    <div className="App">
-      <h1>추천 웹툰</h1>
-     <RecommendedWebtoon image= "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5186%2F2013%2F12%2F19%2F45994_32005_1257_59_20131219231401.jpg&type=sc960_832" title="우진웹툰1" author="방우진" hwa="45" star="10.0" />
-     <RecommendedWebtoon image="https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMzA0MDJfMjU3%2FMDAxNjgwNDQwNTE5OTQz.sIIpWZLvHh3kCo3Ez7otmnk4vqC2tKmSccw53Wp6P4cg.XGJXudXI2-fO-BEk1tykEdoDIF5R33qvTqkNpgUBhnUg.JPEG%2FexternalFile.jpg&type=a340" title="우진웹툰2" author="방우잔" hwa="12" star="10.0" />
-     <RecommendedWebtoon image="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTExMjZfMjIz%2FMDAxNTc0NzQ1MzAxNTkz.FBkxtXXTBJiuqq69rlHOBPNFOpG9g9v0XKLdyPE0_fYg.TBCqm-wjX5O8pyq8OBCR1GnOYRF-1QUbLQJrE1WOOiQg.PNG.hiplaza%2F%25B4%25EB%25B1%25B8%25C3%25B6%25C7%25D0%25B0%25FC_%25BF%25B9%25B4%25E7%25BF%25F8%25BF%25A1%25BC%25AD_%25C0%25FC%25C7%25CF%25B4%25C2_%25BF%25C0%25B4%25C3%25C0%25C7_%25C7%25E0%25BF%25EE%25C0%25C7_%25BC%25FD%25C0%25DA_%25283%2529.png&type=a340" title="우진웹툰3" author="방우전" hwa="15" star="10.0" />
-     <h1>오늘의 웹툰</h1>
-     <TodayWebtoon image="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEyMjVfMTI5%2FMDAxNjcxOTY4MjAwMzc5.SN6CtQaxMNAXTlVo58q9313Ec2rNWb7itsM1uioDBykg.G-kGmL4_9yJ-AqZ55hg6P5IHJYVJ57wEHTTA92cGdEMg.JPEG.woosun5677%2F%25C0%25D312.26.1.jpg&type=sc960_832" title="우진웹툰4" author="방우즌" star="10.0" />
-     <TodayWebtoon image="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20121015_289%2Fjeankjy1009_1350269346253FxzrE_JPEG%2Fnumber-5.jpg&type=sc960_832" title="우진웹툰5" author="방우잰" star="10.0" />
-     <TodayWebtoon image="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fus.123rf.com%2F450wm%2Fanhoog%2Fanhoog1103%2Fanhoog110300050%2F9160662-%25EB%2585%25B8%25EB%259E%2580%25EC%2583%2589-%25EA%25B8%2580%25EA%25BC%25B4-%25EC%2588%25AB%25EC%259E%2590-6.jpg%3Fver%3D6&type=sc960_832" title="우진웹툰6" author="방우준" star="10.0" />
-    </div>
+    <>
+      <h2>추천 화요웹툰</h2>
+      <div style={{ display: 'flex'}}>
+        {RECOMMEND_WEBTOON.map(({type, title, author, rate, info, thumbnail}) => (
+          <WebtoonCard type={type} title={title} author={author} rate={rate} info={info} thumbnail={thumbnail} />
+        ))}
+      </div>
+      <h2>전체 화요웹툰</h2>
+      <div style={{ display: 'flex' }}>
+        {ALL_WEBTOON.map(({type, title, author, rate, info, thumbnail}) => (
+          <WebtoonCard type={type} title={title} author={author} rate={rate} info={info} thumbnail={thumbnail} />
+        ))}
+      </div>
+    </>
   );
 }
 
