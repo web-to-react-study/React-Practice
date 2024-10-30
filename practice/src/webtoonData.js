@@ -5,7 +5,7 @@ const webtoonData = [
         author: '작가 A',
         latestEpisode: '20화',
         rating: 4.5,
-        imageUrl: 'https://image-comic.pstatic.net/webtoon/811721/thumbnail/thumbnail_IMAG21_4db2b4b4-ba56-4768-b13f-a81d69e508f5.jpg'
+        imageUrl: 'https://image-comic.pstatic.net/webtoon/811721/thumbnail/thumbnail_IMAG21_4db2b4b4-ba56-4768-b13f-a81d69e508f5.jpg',
     },
     {
         id: 2,
