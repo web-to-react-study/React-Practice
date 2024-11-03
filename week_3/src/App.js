@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const ListSpotWrap = styled.div`
@@ -27,35 +28,31 @@ const TabControl = styled.div`
     margin: 0 8px;
     padding: 8px 0;
     border: none;
-    background-color: transparent; // 배경색을 투명하게 만들어 버튼이 보이지 않도록
+    background-color: transparent;
     cursor: pointer;
     font-family: Pretendard, Helvetica, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", "돋움", Dotum, sans-serif;
     font-size: 12px;
-    color: var(--color-text-primary); // 기본 글자 색상
+    color: var(--color-text-primary);
 
     &:hover {
-      color: var(--color-text-highlight); // 호버 시 글자 색상 변경
+      color: var(--color-text-highlight);
     }
 
     &.selected {
-      color: var(--color-text-highlight); // 선택된 버튼의 글자 색상
+      color: var(--color-text-highlight);
     }
 
-    // 가운데 점을 추가
     &::after {
-      content: '·'; // 가운데 점을 표시
+      content: '·';
       margin-left: 8px;
-      color: var(--color-text-secondary); // 점 색상
+      color: var(--color-text-secondary);
     }
 
-    // 마지막 버튼에는 점이 없도록
     &:last-child::after {
       content: '';
     }
   }
 `;
-
-
 
 const RecommendList = styled.ul`
   display: flex;
@@ -88,7 +85,6 @@ const ListItem_all = styled.li`
   }
 `;
 
-
 const PosterLink = styled.a`
   display: block;
   text-decoration: none;
@@ -96,10 +92,10 @@ const PosterLink = styled.a`
 
 const ThumbnailArea = styled.div`
   width: 100%;
-  height: 150px; // 카드의 높이를 조정할 수 있습니다.
+  height: 150px;
   background-color: var(--color-bg-primary);
   position: relative;
-  border-radius: 4px; // 모든 모서리를 둥글게
+  border-radius: 4px;
   overflow: hidden;
 `;
 
@@ -107,7 +103,6 @@ const PosterImage = styled.img`
   width: auto;
   height: 100%;
 `;
-
 
 const InfoArea = styled.div`
   padding: 8px 0;
@@ -135,9 +130,11 @@ const RatingArea = styled.span`
 `;
 
 const WebtoonList = () => {
+  const [sortType, setSortType] = useState('popular');
+
   const recommendedWebtoons = [
     {
-      title: '청춘 러브썸',
+      title: '청춘 블라썸',
       author: '홍덕 / NEMONE',
       imageUrl: 'https://image-comic.pstatic.net/webtoon/828920/thumbnail/titledescimage/frontImage_391fbfdc-070f-4373-be3a-3560ac5f55af.png',
       link: 'https://comic.naver.com/webtoon/list?titleId=828920',
@@ -173,7 +170,7 @@ const WebtoonList = () => {
       link: 'https://comic.naver.com/webtoon/list?titleId=783053&tab=tue',
       episode: '153화',
       rating: '9.59',
-      isRecommend: false,
+      views: 50000,
     },
     {
       title: '마루는 강쥐',
@@ -182,7 +179,7 @@ const WebtoonList = () => {
       link: 'https://comic.naver.com/webtoon/list?titleId=796152&tab=tue',
       episode: '113화',
       rating: '9.98',
-      isRecommend: false,
+      views: 80000,
     },
     {
       title: '좋아? 죽어!',
@@ -191,16 +188,16 @@ const WebtoonList = () => {
       link: 'https://comic.naver.com/webtoon/list?titleId=821192&tab=tue',
       episode: '71화',
       rating: '9.48',
-      isRecommend: false,
+      views: 100000,
     },
     {
-      title: '서울 자가 대기업에 다니는 김 부장 이야기',
+      title: '서울 자가 대기업에 다니는 김부장 이야기',
       author: '명량 / 김병곤 / 송희구',
       imageUrl: 'https://image-comic.pstatic.net/webtoon/819929/thumbnail/thumbnail_IMAG21_f1ca00e5-9b30-44d3-a1ee-7a04d539002a.jpg',
       link: 'https://comic.naver.com/webtoon/list?titleId=819929&tab=tue',
       episode: '41화',
       rating: '9.95',
-      isRecommend: false,
+      views: 30000,
     },
     {
       title: '내가 키운 S급들',
@@ -209,10 +206,34 @@ const WebtoonList = () => {
       link: 'https://comic.naver.com/webtoon/list?titleId=784248&tab=tue',
       episode: '151화 : 집으로',
       rating: '9.91',
-      isRecommend: false,
+      views: 90000,
     },
-    
   ];
+
+  const getSortedWebtoons = () => {
+    switch (sortType) {
+      case 'update':
+        return [
+          allWebtoons[2],
+          allWebtoons[3],
+          allWebtoons[4],
+          allWebtoons[1],
+          allWebtoons[0],
+        ];
+      case 'rating':
+        return [...allWebtoons].sort((a, b) => b.rating - a.rating);
+      case 'views':
+        return [
+          allWebtoons[2],
+          allWebtoons[4],
+          allWebtoons[1],
+          allWebtoons[0],
+          allWebtoons[3],
+        ];
+      default:
+        return allWebtoons;
+    }
+  };
 
   return (
     <ListSpotWrap>
@@ -234,7 +255,6 @@ const WebtoonList = () => {
                 <a href={webtoon.link}>{webtoon.title}</a>
               </ContentTitle>
               <ContentAuthor>{webtoon.author}</ContentAuthor>
-              {/* isRecommend가 true일 때만 episode 출력 */}
               {webtoon.isRecommend && <p>{webtoon.episode}</p>}
               <RatingArea>
                 <i>⭐</i>
@@ -250,15 +270,39 @@ const WebtoonList = () => {
           <h2>전체 화요웹툰</h2>
         </TitleArea>
         <TabControl>
-          <button type="button" className="selected">인기순</button>
-          <button type="button">업데이트순</button>
-          <button type="button">조회순</button>
-          <button type="button">별점순</button>
+          <button
+            type="button"
+            className={sortType === 'popular' ? 'selected' : ''}
+            onClick={() => setSortType('popular')}
+          >
+            인기순
+          </button>
+          <button
+            type="button"
+            className={sortType === 'update' ? 'selected' : ''}
+            onClick={() => setSortType('update')}
+          >
+            업데이트순
+          </button>
+          <button
+            type="button"
+            className={sortType === 'views' ? 'selected' : ''}
+            onClick={() => setSortType('views')}
+          >
+            조회순
+          </button>
+          <button
+            type="button"
+            className={sortType === 'rating' ? 'selected' : ''}
+            onClick={() => setSortType('rating')}
+          >
+            별점순
+          </button>
         </TabControl>
       </ComponentHead>
 
       <RecommendList>
-        {allWebtoons.map((webtoon) => (
+        {getSortedWebtoons().map((webtoon) => (
           <ListItem_all key={webtoon.title}>
             <PosterLink href={webtoon.link}>
               <ThumbnailArea>
@@ -270,7 +314,6 @@ const WebtoonList = () => {
                 <a href={webtoon.link}>{webtoon.title}</a>
               </ContentTitle>
               <ContentAuthor>{webtoon.author}</ContentAuthor>
-              {/* 전체 웹툰은 episode 정보가 필요하지 않으므로 주석 처리 */}
               <RatingArea>
                 <i>⭐</i>
                 {webtoon.rating}
@@ -284,4 +327,3 @@ const WebtoonList = () => {
 };
 
 export default WebtoonList;
-
