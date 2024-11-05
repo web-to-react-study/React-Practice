@@ -20,17 +20,18 @@ const webtoonData = [
         update: 0,
         views: 0
     },
-    { // 그냥 선생님 
+    { // 그냥 선생님
         isRecommend: true, 
         image: "https://image-comic.pstatic.net/webtoon/804333/thumbnail/titledescimage/frontImage_ecea4635-1755-41f0-8160-da8f615f93db.png",
         title: "그냥 선생님",
         author: "연일",
         episode: "182화",
+
         rating: "★9.98",
         update: 0,
         views: 0
     },
-
+  
     /* 전체 화요 웹툰 */
     { // 김부장 
         isRecommend: false, 
@@ -54,7 +55,7 @@ const webtoonData = [
         update: 3,
         views: 7
     },
-    {
+    { // 좋아? 죽어!
         isRecommend: false, 
         image: "https://image-comic.pstatic.net/webtoon/821192/thumbnail/thumbnail_IMAG21_156483ac-3740-4cbf-8150-0f24595bae52.jpg",
         title: "좋아? 죽어!",

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React
+import {useState} from 'react';
 import Webtoon from './Webtoon';
 import './App.css';
 import webtoonData from './webtoonData';
@@ -55,8 +56,8 @@ function App() {
       {/* 추천 웹툰 */}
       <h3>추천 화요웹툰</h3>
       <div className="webtoonCard">
-        {recommendWebtoons.map((webtoon, index) => (
-          <Card key={index} isRecommend>
+        {recommendWebtoons.map((webtoon, index) => 
+          <Card key={webtoon.id} isRecommend>
             <Webtoon 
               image={webtoon.image}
               title={webtoon.title}
@@ -97,7 +98,7 @@ function App() {
 
       <div className="webtoonCard">
         {nonRecommendWebtoons.map((webtoon, index) => (
-          <Card key={index}>
+          <Card key={webtoon.id} >
             <Webtoon 
               image={webtoon.image}
               title={webtoon.title}
