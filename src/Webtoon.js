@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Webtoon(props) {
+    /* 컴포넌트 구현 */
     return (
         <div className="webtoonComponent">
             <img src={props.image} alt={props.title} style={{ width: '100%', height: 'auto' }}/>
@@ -8,6 +9,9 @@ function Webtoon(props) {
             <h5>{props.author}</h5>
             <h5>{props.episode}</h5>
             <h5>{props.rating}</h5>
+            <h5>{props.ratingNumber}</h5>
+            <h5>{props.update}</h5>
+            <h5>{props.views}</h5>
         </div>
     );
 }

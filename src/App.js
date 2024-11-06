@@ -1,5 +1,6 @@
-import React from 'react';
-import Webtoon from './Webtoon'; 
+import React
+import {useState} from 'react';
+import Webtoon from './Webtoon';
 import './App.css';
 import webtoonData from './webtoonData';
 import styled from 'styled-components';
@@ -12,34 +13,50 @@ const Card = styled.div`
 `;
 
 const NonRecommendHeader = styled.h3`
-  color:black;
+  color: black;
   display: inline;
 `; 
 
-const FilterText = styled.h5`
-  color: gray; 
+const FilterText = styled.div`
   display: inline; 
-  margin-left: 348px; 
-`; 
-
-const HighlightGreen = styled.span`
-  color: rgb(73, 231, 73);
+  margin-left: 540px; 
+  font-size: 13px;
 `;
 
-
+const FilterOption = styled.span`
+  color: ${({isGreen}) => (isGreen ? 'rgb(73, 231, 73)' : 'gray')};
+  cursor: pointer;
+  margin-right: 10px;
+`;
 
 function App() {
-  // 추천 웹툰 필터
+  // 정렬 기준을 위한 상태 선언
+  const [sortOrder, setSortOrder] = useState("인기순");
+
+  // 정렬 함수
+  const sortWebtoons = (webtoons) => {
+    if (sortOrder === "인기순") {
+      return [...webtoons].sort((a, b) => b.rating - a.rating);
+    } else if (sortOrder === "업데이트순") {
+      return [...webtoons].sort((a, b) => b.update - a.update);
+    } else if (sortOrder === "조회순") {
+      return [...webtoons].sort((a, b) => b.views - a.views); 
+    } else if (sortOrder === "별점순") {
+      return [...webtoons].sort((a, b) => b.ratingNumber - a.retingNumber); 
+    }
+    return webtoons;
+  };
+
+  // 추천 및 비추천 웹툰 필터링
   const recommendWebtoons = webtoonData.filter(webtoon => webtoon.isRecommend);
-  // 전체 웹툰 필터
-  const nonRecommendWebtoons = webtoonData.filter(webtoon => !webtoon.isRecommend);
+  const nonRecommendWebtoons = sortWebtoons(webtoonData.filter(webtoon => !webtoon.isRecommend));
 
   return (
     <div className="App">
       {/* 추천 웹툰 */}
       <h3>추천 화요웹툰</h3>
       <div className="webtoonCard">
-        {recommendWebtoons.map((webtoon, index) => (
+        {recommendWebtoons.map((webtoon, index) => 
           <Card key={webtoon.id} isRecommend>
             <Webtoon 
               image={webtoon.image}
@@ -56,7 +73,26 @@ function App() {
       {/* 전체 웹툰 */}
       <NonRecommendHeader>전체 화요웹툰</NonRecommendHeader>
       <FilterText>
-        <HighlightGreen>인기순</HighlightGreen>• 인기 순 • 업데이트 순 • 조회 순
+        <FilterOption 
+          isGreen={sortOrder === "인기순"} 
+          onClick={() => setSortOrder("인기순")}
+        > 인기순
+        </FilterOption> 
+        <FilterOption 
+          isGreen={sortOrder === "업데이트순"} 
+          onClick={() => setSortOrder("업데이트순")}
+        > 업데이트순
+        </FilterOption> 
+        <FilterOption 
+          isGreen={sortOrder === "조회순"} 
+          onClick={() => setSortOrder("조회순")}
+        > 조회순
+        </FilterOption>
+        <FilterOption
+          isGreen={sortOrder === "별점순"}
+          onClick={() => setSortOrder("별점순")}
+        > 별점순 
+        </FilterOption>
       </FilterText>
       <br/>
 
@@ -69,7 +105,7 @@ function App() {
               author={webtoon.author}
               rating={webtoon.rating}
             />
-        </Card>
+          </Card>
         ))}
       </div>
     </div>
