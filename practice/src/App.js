@@ -5,6 +5,7 @@ import webtoonData from './webtoonData';
 import dailyWebtoonData from './dailyWebtoonData';
 import RecommendedWebtoonCard from './RecommendedWebtoonCard';
 import WebtoonCard from './WebtoonCard';
+import WebtoonListView from './WebtoonListView';
 
 function App() {
   return (
@@ -26,21 +27,10 @@ function App() {
               ))}
             </WebtoonList>
           </div>
-          <h1>수요일 웹툰</h1>
-          <div className="daily-webtoon-list">
-            <WebtoonList>
-              {dailyWebtoonData.map((webtoon) => (
-                <WebtoonCard
-                  key={webtoon.id}
-                  imageUrl={webtoon.imageUrl}
-                  title={webtoon.title}
-                  author={webtoon.author}
-                  rating={webtoon.rating}
-                  type = "Wed"
-                />
-              ))}
-            </WebtoonList>
+          <div>
+            <WebtoonListView dailyWebtoonData={dailyWebtoonData} />
           </div>
+          
       </header>
     </div>
   );
