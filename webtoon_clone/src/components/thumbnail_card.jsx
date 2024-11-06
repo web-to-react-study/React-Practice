@@ -28,25 +28,26 @@ const Thumbnail = styled.img`
 `;
 
 const Title = styled.p`
-	margin: 1px 0px;
+	margin: 7px 0px 9px 0px;
+	font-size: 14px;
 	font-weight: bold;
 `;
 
 const Writer = styled.p`
-	margin: 5px 0px;
+	margin: 0px 0px 9px 0px;
 	font-size: 13px;
 	font-weight: 600;
 `;
 
 const UpdatedStory = styled.p`
-	margin: 5px 0px;
+	margin: 0px 0px 7px 0px;
 	font-size: 13px;
 	font-weight: 500;
 	color: gray;
 `;
 
 const Star = styled.p`
-	margin: 7px 0px;
+	margin: 0px;
 	font-size: 12px;
 	color: gray;
 `;
