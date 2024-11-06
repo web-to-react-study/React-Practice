@@ -157,6 +157,38 @@ const Li = styled.li`
 const data = ['인기순','업데이트순','조회순','별점순'];
 const EngData = ['popular','update','count','star'];
 
+const RECOMMEND_WEBTOON = [
+  {
+    id: 0,
+    title: '무서운게 딱좋아!',
+    author: '이동규',
+    rate: 9.85,
+    info: '142화',
+    thumbnail: 'https://image-comic.pstatic.net/webtoon/778322/thumbnail/titledescimage/frontImage_9a8619ea-a259-40ee-b33c-b9fa3ef1e36c.png',
+  },
+  {
+    id:1,
+    title: '킬디스럽!',
+    author: '김찹쌀',
+    rate: 9.94,
+    info: '7화',
+    thumbnail: 'https://image-comic.pstatic.net/webtoon/828909/thumbnail/titledescimage/frontImage_dc664da3-ea26-40a1-9764-0407ab9e4ec6.png',
+  },
+  {
+    id:2,
+    title: '밤필드의 아이들 by DARK MOON',
+    author: 'HYBE',
+    rate: 9.89,
+    info: '9화',
+    thumbnail: 'https://image-comic.pstatic.net/webtoon/822774/thumbnail/titledescimage/frontImage_5032a0cd-7afe-4927-a6bf-0be4aa6cc670.png',
+  },
+];
+
+const DivBlock = styled.div`
+display:flex;
+`;
+
+
 function App() {
   const [sort, setSort] = useState('popular');
 
@@ -200,6 +232,7 @@ function App() {
       </DivRow>
       <DivBlock>
         {sort === 'popular' ? createList(RECOMMEND_WEBTOON) : sort === 'update' ? createList(UPDATE_WEBTOON) :sort === 'count' ? createList(COUNT_WEBTOON): createList(STAR_WEBTOON)}
+
       </DivBlock>
     </>
   );
