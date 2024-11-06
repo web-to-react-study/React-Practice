@@ -1,0 +1,19 @@
+.Comic-Card {
+    width: 250px;
+
+    border: 1px solid red;
+}
+
+.Comic-img {
+    max-width: 100%;
+}
+
+.card_box1{
+    display: flex;
+    
+}
+.card_box2{
+    display: flex;
+    flex-direction: column;
+    line-height:0.1;
+}
