@@ -9,6 +9,7 @@ function SignUpPage() {
    * - ID는 유저가 소문자로 입력해도, UI에는 대문자로 나오도록 구현
    * - onSubmit 이벤트 발생 시, console에 현재 사용자 input(ID, PASSWORD 모두) 을 출력
    */
+  
 
   return (
     <Container>
