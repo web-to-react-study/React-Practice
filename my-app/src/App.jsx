@@ -1,4 +1,4 @@
-import SignUpPage from './SignUpPage';
+import SignUpPage from './page/SignUpPage';
 
 function App() {
   return <SignUpPage />;

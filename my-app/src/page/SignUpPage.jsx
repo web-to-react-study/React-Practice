@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
 function SignUpPage() {
   /**
@@ -10,13 +11,23 @@ function SignUpPage() {
    * - onSubmit 이벤트 발생 시, console에 현재 사용자 input(ID, PASSWORD 모두) 을 출력
    */
   
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState(''); 
+
+  const Submit1 = (e) => {
+    e.preventDefault();
+    console.log('ID:', id);
+    console.log('Password:', password);
+  };
 
   return (
-    <Container>
+    <Container onSubmit = {Submit1}>
       <h1>회원가입</h1>
-      <Input name="id" placeholder="ID 입력 / 대문자만 가능" />
-      <Input name="password" placeholder="password 입력 / 8자 이상" />
-      <Button disabled>가입</Button>
+      <Input name="id" placeholder="ID 입력 / 대문자만 가능"
+       value = {id} onChange = {(e) => setId(e.target.value.toUpperCase())}/>
+      <Input name="password" placeholder="password 입력 / 8자 이상" 
+      value = {password} onChange = {(e) => setPassword(e.target.value)}/>
+      <Button type = "submit" disabled = {(id.length < 1) || (password.length < 8)}>가입</Button>
     </Container>
   );
 }
