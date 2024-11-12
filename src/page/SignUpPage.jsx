@@ -1,21 +1,50 @@
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 function SignUpPage() {
-  /**
-   * TODO
-   * 컴포넌트 내부에 아래 로직을 작성해 주세요.
-   * - ID, PASSWORD 둘 다 제어 컴포넌트 사용
-   * - ID, PASSWORD 모두 조건 만족 못하는 경우 버튼 disabled 처리
-   * - ID는 유저가 소문자로 입력해도, UI에는 대문자로 나오도록 구현
-   * - onSubmit 이벤트 발생 시, console에 현재 사용자 input(ID, PASSWORD 모두) 을 출력
-   */
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+  const handleIdChange = (event) => {
+    const uppercaseId = event.target.value.toUpperCase();
+    setId(uppercaseId);
+    validateForm(uppercaseId, password);
+  };
+
+  const handlePasswordChange = (event) => {
+    const newPassword = event.target.value;
+    setPassword(newPassword);
+    validateForm(id, newPassword);
+  };
+
+  const validateForm = (currentId, currentPassword) => {
+    setIsButtonDisabled(!(currentId && currentPassword.length >= 8));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('ID:', id);
+    console.log('PASSWORD:', password);
+  };
 
   return (
-    <Container>
+    <Container onSubmit={handleSubmit}>
       <h1>회원가입</h1>
-      <Input name="id" placeholder="ID 입력 / 대문자만 가능" />
-      <Input name="password" placeholder="password 입력 / 8자 이상" />
-      <Button disabled>가입</Button>
+      <Input
+        name="id"
+        placeholder="ID 입력 / 대문자만 가능"
+        value={id}
+        onChange={handleIdChange}
+      />
+      <Input
+        name="password"
+        type="password"
+        placeholder="password 입력 / 8자 이상"
+        value={password}
+        onChange={handlePasswordChange}
+      />
+      <Button type="submit" disabled={isButtonDisabled}>가입</Button>
     </Container>
   );
 }
