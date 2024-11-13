@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import {useState} from 'react'; 
+import React from 'react'; 
 
 function SignUpPage() {
   /**
@@ -10,12 +12,33 @@ function SignUpPage() {
    * - onSubmit 이벤트 발생 시, console에 현재 사용자 input(ID, PASSWORD 모두) 을 출력
    */
 
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('ID:', id);
+    console.log('Password:', password);
+  };
+
+  const handleIdChange = (e) => {
+    const updatedId = e.target.value.toUpperCase();
+    setId(updatedId);
+    console.log('reRendering_ID:', updatedId);
+  };
+
+  const handlePasswordChange = (e) => {
+    const updatedPassword = e.target.value;
+    setPassword(updatedPassword);
+    console.log('reRendering_Password:', updatedPassword);
+  };
+
   return (
-    <Container>
+    <Container onSubmit={handleSubmit}>
       <h1>회원가입</h1>
-      <Input name="id" placeholder="ID 입력 / 대문자만 가능" />
-      <Input name="password" placeholder="password 입력 / 8자 이상" />
-      <Button disabled>가입</Button>
+      <Input name="id" placeholder="ID 입력 / 대문자만 가능" value={id} onChange={handleIdChange}/>
+      <Input name="password" placeholder="password 입력 / 8자 이상" value={password} onChange={handlePasswordChange}/>
+      <Button type='submit' disabled={!(id.length > 0 && password.length >= 8)}> 가입</Button>
     </Container>
   );
 }
