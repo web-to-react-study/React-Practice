@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 function SignUpPage() {
   /**
@@ -10,13 +12,50 @@ function SignUpPage() {
    * - onSubmit 이벤트 발생 시, console에 현재 사용자 input(ID, PASSWORD 모두) 을 출력
    */
 
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleIdChange = (e) => {
+    setId(e.target.value.toUpperCase()); // Display as uppercase
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('ID:', id);
+    console.log('Password:', password);
+  };
+
+
   return (
-    <Container>
+    <>
+    <Helmet>
+      <title>회원가입</title>
+    </Helmet>
+    <Container onSubmit={handleSubmit}>
       <h1>회원가입</h1>
-      <Input name="id" placeholder="ID 입력 / 대문자만 가능" />
-      <Input name="password" placeholder="password 입력 / 8자 이상" />
-      <Button disabled>가입</Button>
+        <Input
+          name="id"
+          placeholder="ID 입력"
+          value={id}
+          onChange={handleIdChange}
+        />
+        <Input
+          name="password"
+          placeholder="password 입력 / 8자 이상입력해주세요"
+          type="password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
+        <Button 
+          type="submit" 
+          disabled={id.length === 0 || password.length < 8}
+          >가입</Button>
     </Container>
+    </>
   );
 }
 
