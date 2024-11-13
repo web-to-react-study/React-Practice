@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { Helmet } from "react-helmet-async";
 function SignUpPage() {
   /**
    * TODO
@@ -11,12 +11,17 @@ function SignUpPage() {
    */
 
   return (
+    <>
+    <Helmet>
+        <title>회원가입</title>
+      </Helmet>
     <Container>
       <h1>회원가입</h1>
       <Input name="id" placeholder="ID 입력 / 대문자만 가능" />
       <Input name="password" placeholder="password 입력 / 8자 이상" />
       <Button disabled>가입</Button>
     </Container>
+    </>
   );
 }
 
