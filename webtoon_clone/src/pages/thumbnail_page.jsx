@@ -9,12 +9,16 @@ import {
 } from "../data";
 import { useState } from "react";
 import { LuDot } from "react-icons/lu";
+import { Helmet } from "react-helmet-async";
 
 function ThumbnailPage() {
 	const [orderBy, setOrderBy] = useState("인기순");
 
 	return (
 		<Main>
+			<Helmet>
+				<title>메인 페이지</title>
+			</Helmet>
 			<Section>
 				<Heading>추천 목요웹툰</Heading>
 				<RecommendCardContainer>

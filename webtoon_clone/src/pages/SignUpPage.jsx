@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
 
 function SignUpPage() {
@@ -16,6 +17,9 @@ function SignUpPage() {
 
 	return (
 		<Container>
+			<Helmet>
+				<title>회원가입 페이지</title>
+			</Helmet>
 			<h1>회원가입</h1>
 			<Input
 				name="id"
