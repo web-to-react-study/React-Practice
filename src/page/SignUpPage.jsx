@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 function SignUpPage() {
@@ -9,6 +10,25 @@ function SignUpPage() {
    * - ID는 유저가 소문자로 입력해도, UI에는 대문자로 나오도록 구현
    * - onSubmit 이벤트 발생 시, console에 현재 사용자 input(ID, PASSWORD 모두) 을 출력
    */
+
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+
+  const isFormValid = id.length > 0 && password.length >= 8;
+
+  const handleIdChange = (e) => {
+    const value = e.target.value.toUpperCase();
+    setId(value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(`ID: ${id}, Password: ${password}`);
+  };
 
   return (
     <Container>
