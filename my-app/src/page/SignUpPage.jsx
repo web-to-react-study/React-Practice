@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
+import { Helmet } from "react-helmet-async";
 
 function SignUpPage() {
   /**
@@ -20,6 +21,9 @@ function SignUpPage() {
 
   return (  
     <Container onSubmit={onSubmit}>
+      <Helmet>
+        <title>회원가입</title>
+      </Helmet>
       <h1>회원가입</h1>
       <Input name="id" placeholder="ID 입력 / 대문자만 가능" value={id.toUpperCase()} onChange={(e) => setid(e.target.value)}/>
       <Input name="password" placeholder="password 입력 / 8자 이상" value={password} onChange={(e) => setpassword(e.target.value)}/>
