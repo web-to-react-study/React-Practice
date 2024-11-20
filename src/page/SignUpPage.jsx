@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { useState } from 'react';
-
+import { Helmet } from "react-helmet-async";
 function SignUpPage() {
   /**
    * TODO
@@ -11,16 +10,18 @@ function SignUpPage() {
    * - onSubmit 이벤트 발생 시, console에 현재 사용자 input(ID, PASSWORD 모두) 을 출력
    */
 
-  const [password, setPassword] = useState('');
-  const [id, setId] = useState('');
-
   return (
+    <>
+    <Helmet>
+        <title>회원가입</title>
+      </Helmet>
     <Container>
       <h1>회원가입</h1>
-      <Input name="id" placeholder="ID 입력 / 대문자만 가능" value={id.toUpperCase()} onChange={(e) => { setId(e.target.value.toUpperCase())}}/>
-      <Input name="password" placeholder="password 입력 / 8자 이상" value={password} onChange={(e) => setPassword(e.target.value)}/>
-      <Button type='button' disabled={id.length>0 ? (password.length >=8 ? false : true) : true} onClick={()=>console.log('input(%s,%s)',id,password)}>가입</Button>
+      <Input name="id" placeholder="ID 입력 / 대문자만 가능" />
+      <Input name="password" placeholder="password 입력 / 8자 이상" />
+      <Button disabled>가입</Button>
     </Container>
+    </>
   );
 }
 
