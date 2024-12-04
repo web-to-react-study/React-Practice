@@ -1,25 +1,19 @@
-import axios from 'axios';
-import KeywordBox from '../components/KeywordBox';
 import '../style/search.css';
 import { useState } from 'react';
+import KeywordBox from '../components/KeywordBox';
 
 const BASE_URL = '/v1/datalab/search';
-const NAVER_CLIENT_ID = 'dZD7XbraaPyRZ4u0nkLN';
-const NAVER_CLIENT_SECRET = 'b4muvJq1I7';
+const NAVER_CLIENT_ID = 'YOUR_ID';
+const NAVER_CLIENT_SECRET = 'YOUR_SECRET';
 
 function SearchPage() {
   const [result, setResult] = useState([]);
   const [userInput, setUserInput] = useState({ timeUnit: 'date' });
   const postData = async () => {
-    const res = await axios.post(BASE_URL, userInput, {
-      headers: {
-        'X-Naver-Client-Id': NAVER_CLIENT_ID,
-        'X-Naver-Client-Secret': NAVER_CLIENT_SECRET,
-        'Content-Type': 'application/json',
-      },
-    });
-
-    return res;
+    /** WEEK7 TODO
+     * BASE_URL로 POST 요청을 보내는 함수를 작성해 주세요.
+     * BODY는 userInput을 사용하시면 됩니다!
+     */
   };
 
   const handlePostData = (e) => {
