@@ -1,11 +1,10 @@
 import '../style/search.css';
 import { useState } from 'react';
 import KeywordBox from '../components/KeywordBox';
-import axios from 'axios';
 
 const BASE_URL = 'https://openapi.naver.com/v1/datalab/search';
-const NAVER_CLIENT_ID = 'YfBxroxmUXoV4SMJeIyhq';
-const NAVER_CLIENT_SECRET = '2xf4mXNi83';
+const NAVER_CLIENT_ID = 'YOUR_ID';
+const NAVER_CLIENT_SECRET = 'YOUR_SECRET';
 
 function SearchPage() {
   const [result, setResult] = useState([]);
@@ -15,18 +14,6 @@ function SearchPage() {
      * BASE_URL로 POST 요청을 보내는 함수를 작성해 주세요.
      * BODY는 userInput을 사용하시면 됩니다!
      */
-    const postData = async () => {
-      const res = await axios.post(BASE_URL, userInput, {
-        headers: {
-          'X-Naver-Client-Id': NAVER_CLIENT_ID,
-          'X-Naver-Client-Secret': NAVER_CLIENT_SECRET,
-          'Content-Type': 'application/json',
-        },
-      });
-  
-      return res;
-    };
-
   };
 
   const handlePostData = (e) => {
