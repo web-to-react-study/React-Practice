@@ -2,7 +2,7 @@ import '../style/search.css';
 import { useState } from 'react';
 import KeywordBox from '../components/KeywordBox';
 
-const BASE_URL = '/v1/datalab/search';
+const BASE_URL = 'https://openapi.naver.com/v1/datalab/search';
 const NAVER_CLIENT_ID = 'YOUR_ID';
 const NAVER_CLIENT_SECRET = 'YOUR_SECRET';
 
