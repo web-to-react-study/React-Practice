@@ -10,6 +10,7 @@
 - [241106_4주차: 제어, 비제어 컴포넌트](https://naya-h2.notion.site/10bfe86451a0804cb167ec67c341ca52)
 - [241113_5주차: React Routing](https://naya-h2.notion.site/React-Routing-10bfe86451a0809db2bec517760c0e0c?pvs=73)
 - [241127_6주차: 동기와 비동기](https://naya-h2.notion.site/10bfe86451a080809673fffa55180f78?pvs=4)
+- [241204_7주차: CORS 에러 & API 연결 실습](https://naya-h2.notion.site/CORS-API-10bfe86451a08043895ad50c871019f3?pvs=73)
 
 <BR />
 
